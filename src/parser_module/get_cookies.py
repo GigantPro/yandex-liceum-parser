@@ -1,6 +1,8 @@
 import pickle
+from time import sleep
 
 from selenium import webdriver
+from selenium.common import exceptions
 from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -14,14 +16,22 @@ def get_cookies() -> webdriver.Firefox:
         print(GREEN_TEXT.format(text='Cookies already exist'))
 
         options = FirefoxOptions()
-        options.headless = True
+        # options.headless = True
         options.add_argument("--disable-blink-features=AutomationControlled")
         driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
 
-        driver.get('https://lms.yandex.ru')
+        driver.get('https://passport.yandex.ru')
+        sleep(.5)
         cookies = pickle.load(open(COOKIES_PATH.absolute(), "rb"))
         for cookie in cookies:
-            driver.add_cookie(cookie)
+            try:
+                driver.add_cookie(cookie)
+            except exceptions.InvalidCookieDomainException:
+                ...
+
+        driver.close()
+        driver.quit()
+
         return driver
     
     print(YELLOW_TEXT.format(text='The cookies are not found! The entrance in the window opened in the browser is required.'))
