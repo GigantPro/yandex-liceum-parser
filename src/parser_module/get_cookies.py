@@ -16,7 +16,7 @@ def get_cookies() -> webdriver.Firefox:
         print(GREEN_TEXT.format(text='Cookies already exist'))
 
         options = FirefoxOptions()
-        # options.headless = True
+        options.headless = True
         options.add_argument("--disable-blink-features=AutomationControlled")
         driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
 
