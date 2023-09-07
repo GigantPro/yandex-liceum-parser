@@ -37,6 +37,8 @@ async def download_files_controller(path_to_save: Path, data_to_download: list[t
     async with aiohttp.ClientSession() as session:
         await asyncio.gather(*[download_file_worker(queue, session) for _ in range(100)])
 
+    print(GREEN_TEXT.format(text='Everything is saved! Enjoy the answers :)'))
+
 
 async def download_file_worker(queue: asyncio.Queue, session: aiohttp.ClientSession) -> None:
     while True:
