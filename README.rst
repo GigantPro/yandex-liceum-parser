@@ -24,6 +24,7 @@ Installation
 *Dependencies*:
 
 * `poetry` (*pip install poetry*)
+* `FireFox browser`
 
 .. code-block:: console
 
