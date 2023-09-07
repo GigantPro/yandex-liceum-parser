@@ -11,7 +11,7 @@ from .config import COOKIES_PATH
 from ..config import GREEN_TEXT, YELLOW_TEXT
 
 
-def get_cookies() -> webdriver.Firefox:
+def get_cookies() -> tuple[webdriver.Firefox, list[dict]]:
     if COOKIES_PATH.exists():
         print(GREEN_TEXT.format(text='Cookies already exist'))
 
@@ -29,10 +29,7 @@ def get_cookies() -> webdriver.Firefox:
             except exceptions.InvalidCookieDomainException:
                 ...
 
-        driver.close()
-        driver.quit()
-
-        return driver
+        return driver, cookies
     
     print(YELLOW_TEXT.format(text='The cookies are not found! The entrance in the window opened in the browser is required.'))
     options = FirefoxOptions()
@@ -45,12 +42,9 @@ def get_cookies() -> webdriver.Firefox:
     
     pickle.dump(driver.get_cookies(), open(COOKIES_PATH.absolute(), "wb"))
 
-    driver.close()
     driver.quit()
-
-    del driver
 
     print(GREEN_TEXT.format(text='Cookies were saved'))
 
     options.headless = True
-    return webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    return driver, driver.get_cookies()

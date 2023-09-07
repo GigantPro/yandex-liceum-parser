@@ -162,4 +162,6 @@ cython_debug/
 .vscode
 cookies-*
 cookies.pikle
- 
+1.html
+temp.*
+answers
