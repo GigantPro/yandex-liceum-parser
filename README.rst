@@ -6,7 +6,7 @@
     </p>
 
     <p align="center">
-        <a href="https://github.com/GigantPro/yandex-liceum-parser"><img alt="Python versions" src="https://img.shields.io/badge/python-3.10+ | PyPy-blue.svg"></a>
+        <a href="https://github.com/GigantPro/yandex-liceum-parser"><img alt="Python versions" src="https://img.shields.io/badge/python-3.10+-blue.svg"></a>
         <img alt="Size" src="https://img.shields.io/github/languages/code-size/GigantPro/yandex-liceum-parser">
     </p>
 
