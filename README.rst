@@ -2,7 +2,7 @@
 
    <p align="center">
         <h1 align="center">Yandex Liceum Parser</h1>
-        <h2 align="center">This library was created in order to be able to save classes with a single line, as well as load them!</h2>
+        <h2 align="center">Allows you to save all your answers from the course in Yandex Liceum to a local computer</h2>
     </p>
 
     <p align="center">
