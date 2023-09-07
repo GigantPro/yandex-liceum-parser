@@ -1,11 +1,6 @@
-try:
-    from .config import BUISNESS_LOGO, GREEN_TEXT
-    from .eula import eula_accept
-    from .parser_module import parser_module_init, main_parser
-except:
-    from config import BUISNESS_LOGO, GREEN_TEXT
-    from eula import eula_accept
-    from parser_module import parser_module_init, main_parser
+from .config import BUISNESS_LOGO, GREEN_TEXT
+from .eula import eula_accept
+from .parser_module import parser_module_init, main_parser
 
 
 def main():
