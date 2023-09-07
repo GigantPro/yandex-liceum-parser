@@ -34,9 +34,9 @@ Quick start
 -------------
 
 * `Installation`_
-* `Uusage`_
+* `Usage`_
 
-Uusage
+Usage
 ^^^^^^^^^^^
 
 .. code-block:: console
